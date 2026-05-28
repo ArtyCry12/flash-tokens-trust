@@ -2,7 +2,7 @@
 
 import { Footer7 } from "@/components/ui/footer-7";
 import { useLanguage } from "@/lib/i18n";
-import { SECTION_IDS } from "@/lib/constants";
+import { SECTION_IDS, TIKTOK_URL } from "@/lib/constants";
 
 export function SiteFooter() {
   const { content } = useLanguage();
@@ -24,10 +24,12 @@ export function SiteFooter() {
           ],
         },
         {
-          title: "Mercedes-Benz",
+          title: "Social",
           links: [
-            { name: content.services.items[0].title, href: `#${SECTION_IDS.services}` },
-            { name: content.services.items[3].title, href: `#${SECTION_IDS.services}` },
+            {
+              name: "TikTok @gelandewagen.md",
+              href: TIKTOK_URL,
+            },
           ],
         },
       ]}

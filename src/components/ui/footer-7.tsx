@@ -34,6 +34,9 @@ export function Footer7({
                       <a
                         href={link.href}
                         className="transition-colors hover:text-[#2997ff]"
+                        {...(link.href.startsWith("http")
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
                       >
                         {link.name}
                       </a>
