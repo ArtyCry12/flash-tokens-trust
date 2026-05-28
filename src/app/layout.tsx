@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: ro.meta.title,
   description: ro.meta.description,
+  keywords: ro.meta.keywords,
   alternates: {
     canonical: "/",
     languages: {

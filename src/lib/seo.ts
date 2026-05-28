@@ -1,4 +1,4 @@
-import { ADDRESS, OPENING_HOURS, PHONES, SITE_URL } from "@/lib/constants";
+import { ADDRESS, OPENING_HOURS, PHONES, SITE_URL, TIKTOK_URL } from "@/lib/constants";
 
 export function buildJsonLd() {
   return {
@@ -52,7 +52,10 @@ export function buildJsonLd() {
           "SBC repair",
           "Suspension repair",
           "Air conditioning service",
+          "Brake service",
+          "Wheel alignment",
         ],
+        sameAs: [TIKTOK_URL],
       },
     ],
   };
