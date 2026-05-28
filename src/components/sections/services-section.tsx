@@ -1,39 +1,24 @@
 "use client";
 
-import ChromaGrid, { type ChromaItem } from "@/components/react-bits/ChromaGrid";
+import Image from "next/image";
 import AnimatedContent from "@/components/react-bits/AnimatedContent";
 import { useLanguage } from "@/lib/i18n";
-import { SECTION_IDS } from "@/lib/constants";
+import { SECTION_IDS, SERVICE_IMAGES } from "@/lib/constants";
 
 const SERVICE_STYLES = [
-  { borderColor: "#2997ff", gradient: "linear-gradient(145deg, #1c3a5f, #000)" },
-  { borderColor: "#10B981", gradient: "linear-gradient(180deg, #0f4c3a, #000)" },
-  { borderColor: "#C0C0C0", gradient: "linear-gradient(165deg, #3d3d3d, #000)" },
-  { borderColor: "#8B5CF6", gradient: "linear-gradient(195deg, #3b2d5c, #000)" },
-  { borderColor: "#06B6D4", gradient: "linear-gradient(135deg, #0c4a6e, #000)" },
-  { borderColor: "#F59E0B", gradient: "linear-gradient(210deg, #5c3d0a, #000)" },
-];
-
-const SERVICE_IMAGES = [
-  "/images/gallery-1.webp",
-  "/images/gallery-2.webp",
-  "/images/gallery-3.webp",
-  "/images/gallery-5.webp",
-  "/images/gallery-1.webp",
-  "/images/gallery-2.webp",
+  { border: "border-[#2997ff]/40", glow: "from-[#2997ff]/20" },
+  { border: "border-emerald-500/40", glow: "from-emerald-500/20" },
+  { border: "border-slate-400/40", glow: "from-slate-400/20" },
+  { border: "border-violet-500/40", glow: "from-violet-500/20" },
+  { border: "border-cyan-500/40", glow: "from-cyan-500/20" },
+  { border: "border-amber-500/40", glow: "from-amber-500/20" },
+  { border: "border-rose-500/40", glow: "from-rose-500/20" },
+  { border: "border-indigo-500/40", glow: "from-indigo-500/20" },
 ];
 
 export function ServicesSection() {
   const { content } = useLanguage();
   const s = content.services;
-
-  const items: ChromaItem[] = s.items.map((item, i) => ({
-    image: SERVICE_IMAGES[i] ?? "/images/gallery-1.webp",
-    title: item.title,
-    subtitle: item.description,
-    borderColor: SERVICE_STYLES[i].borderColor,
-    gradient: SERVICE_STYLES[i].gradient,
-  }));
 
   return (
     <section id={SECTION_IDS.services} className="bg-[var(--gw-bg)] py-24 text-white">
@@ -44,9 +29,38 @@ export function ServicesSection() {
           </h2>
           <p className="mx-auto mb-12 max-w-2xl text-center text-white/60">{s.footnote}</p>
         </AnimatedContent>
-        <div className="relative min-h-[520px]">
-          <ChromaGrid items={items} radius={320} />
-        </div>
+        <ul className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-5">
+          {s.items.map((item, i) => {
+            const style = SERVICE_STYLES[i] ?? SERVICE_STYLES[0];
+            const image = SERVICE_IMAGES[i] ?? SERVICE_IMAGES[0];
+            return (
+              <li key={item.title}>
+                <article
+                  className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-gradient-to-b to-black/80 ${style.border} ${style.glow}`}
+                >
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <Image
+                      src={image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  </div>
+                  <div className="flex flex-1 flex-col gap-1 p-4">
+                    <h3 className="text-sm font-semibold leading-snug md:text-base">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-white/60 md:text-sm">
+                      {item.description}
+                    </p>
+                  </div>
+                </article>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );

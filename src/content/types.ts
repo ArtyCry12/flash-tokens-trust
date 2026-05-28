@@ -20,6 +20,7 @@ export type SiteContent = {
   meta: {
     title: string;
     description: string;
+    keywords?: string[];
   };
   nav: {
     home: string;

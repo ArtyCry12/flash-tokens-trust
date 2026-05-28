@@ -4,7 +4,14 @@ export const ro: SiteContent = {
   meta: {
     title: "Mercedes Service Chișinău | GELANDEWAGEN | Service din 1996",
     description:
-      "Service specializat Mercedes-Benz în Chișinău. Diagnoză computerizată, reparații motor, cutie automată, electrică, suspensie și climatizare. Din 1996.",
+      "Service specializat Mercedes-Benz în Chișinău. Diagnoză, motor, cutie automată, electrică, suspensie, frâne, geometrie roți și climatizare. Din 1996.",
+    keywords: [
+      "Mercedes service Chișinău",
+      "service Mercedes-Benz Moldova",
+      "diagnoză Mercedes",
+      "reparații Mercedes Chișinău",
+      "GELANDEWAGEN",
+    ],
   },
   nav: {
     home: "Acasă",
@@ -82,6 +89,16 @@ export const ro: SiteContent = {
         description:
           "Diagnostic și reparații pentru confort, stabilitate și siguranță.",
       },
+      {
+        title: "Sistem de frânare",
+        description:
+          "Înlocuire plăcuțe, discuri, lichid frână; reparații etriere.",
+      },
+      {
+        title: "Geometrie roți",
+        description:
+          "Reglaj 3D al unghiurilor roților pentru uzură uniformă și direcție corectă.",
+      },
     ],
   },
   why: {
@@ -143,6 +160,6 @@ export const ro: SiteContent = {
   footer: {
     description:
       "Service specializat Mercedes-Benz în Chișinău. Diagnostic, reparații și întreținere din 1996.",
-    copyright: "© GELANDEWAGEN. Toate drepturile rezervate.",
+    copyright: "© GELANDEWAGEN, Chișinău. Toate drepturile rezervate.",
   },
 };
