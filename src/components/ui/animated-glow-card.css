@@ -1,0 +1,41 @@
+.glow-card {
+  position: relative;
+  border-radius: 1rem;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(41, 151, 255, 0.6),
+    rgba(192, 192, 192, 0.2),
+    rgba(41, 151, 255, 0.4)
+  );
+  overflow: hidden;
+}
+
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(41, 151, 255, 0.5),
+    transparent,
+    rgba(192, 192, 192, 0.35),
+    transparent
+  );
+  animation: glow-spin 8s linear infinite;
+}
+
+.glow-card-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: calc(1rem - 1px);
+  background: #0a0a0a;
+  overflow: hidden;
+}
+
+@keyframes glow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

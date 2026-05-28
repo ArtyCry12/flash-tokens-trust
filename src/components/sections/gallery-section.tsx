@@ -1,36 +1,28 @@
 "use client";
 
-import BounceCards from "@/components/react-bits/BounceCards";
+import { LazyModelViewer } from "@/components/gallery/lazy-model-viewer";
+import { AnimatedGlowCard } from "@/components/ui/animated-glow-card";
 import { useLanguage } from "@/lib/i18n";
-import { SECTION_IDS, GALLERY_IMAGES } from "@/lib/constants";
-
-const TRANSFORMS = [
-  "rotate(8deg) translate(-150px)",
-  "rotate(3deg) translate(-75px)",
-  "rotate(-4deg)",
-  "rotate(6deg) translate(75px)",
-  "rotate(-6deg) translate(150px)",
-];
+import { GALLERY_MODELS, SECTION_IDS } from "@/lib/constants";
 
 export function GallerySection() {
   const { content } = useLanguage();
   const g = content.gallery;
-  const images = GALLERY_IMAGES.map((img) => img.src);
 
   return (
     <section id={SECTION_IDS.gallery} className="bg-[var(--gw-bg)] py-24 text-white">
-      <div className="container mx-auto px-4 text-center md:px-6">
-        <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">{g.h2}</h2>
-        <p className="mx-auto mt-4 max-w-xl text-white/60">{g.subtitle}</p>
-        <div className="mt-16 flex justify-center">
-          <BounceCards
-            images={images}
-            containerWidth={520}
-            containerHeight={280}
-            transformStyles={TRANSFORMS}
-            enableHover={false}
-          />
-        </div>
+      <div className="container mx-auto px-4 md:px-6">
+        <h2 className="text-center text-3xl font-semibold tracking-tight md:text-5xl">{g.h2}</h2>
+        <p className="mx-auto mt-4 max-w-xl text-center text-white/60">{g.subtitle}</p>
+        <ul className="mt-16 grid gap-8 md:grid-cols-3">
+          {GALLERY_MODELS.map((model) => (
+            <li key={model.src}>
+              <AnimatedGlowCard label={model.label}>
+                <LazyModelViewer url={model.src} />
+              </AnimatedGlowCard>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
