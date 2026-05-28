@@ -1,6 +1,6 @@
 "use client";
 
-import { LazyModelViewer } from "@/components/gallery/lazy-model-viewer";
+import { GalleryModelViewer } from "@/components/gallery/gallery-model-viewer";
 import { AnimatedGlowCard } from "@/components/ui/animated-glow-card";
 import { useLanguage } from "@/lib/i18n";
 import { GALLERY_MODELS, SECTION_IDS } from "@/lib/constants";
@@ -18,7 +18,7 @@ export function GallerySection() {
           {GALLERY_MODELS.map((model) => (
             <li key={model.src}>
               <AnimatedGlowCard label={model.label}>
-                <LazyModelViewer url={model.src} />
+                <GalleryModelViewer url={model.src} />
               </AnimatedGlowCard>
             </li>
           ))}

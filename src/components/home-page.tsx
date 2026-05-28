@@ -1,5 +1,6 @@
 "use client";
 
+import "@/components/gallery/gallery-preload";
 import { HeroVideoSection } from "@/components/sections/hero-video-section";
 import { TrustStrip } from "@/components/sections/trust-strip";
 import { SiteHeader } from "@/components/site-header";
