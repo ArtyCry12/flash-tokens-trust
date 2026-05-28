@@ -49,10 +49,10 @@ export function AboutSection() {
               Mercedes-Benz · Chișinău
             </p>
             <Image
-              src="/images/gallery-4.webp"
-              alt="Mercedes-Benz service GELANDEWAGEN"
+              src="/og-poster.webp"
+              alt="GELANDEWAGEN — service Mercedes-Benz Chișinău"
               width={1200}
-              height={800}
+              height={630}
               className="w-full rounded-2xl object-cover shadow-lg"
             />
           </div>
@@ -65,10 +65,10 @@ export function AboutSection() {
               }
             >
               <Image
-                src="/images/gallery-4.webp"
-                alt="Mercedes-Benz service GELANDEWAGEN"
+                src="/og-poster.webp"
+                alt="GELANDEWAGEN — service Mercedes-Benz Chișinău"
                 width={1200}
-                height={800}
+                height={630}
                 className="mx-auto h-full w-full rounded-2xl object-cover"
               />
             </ContainerScroll>
