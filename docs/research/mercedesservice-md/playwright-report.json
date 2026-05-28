@@ -1,0 +1,59 @@
+{
+  "url": "https://www.mercedesservice.md/",
+  "viewports": [
+    {
+      "name": "mobile",
+      "status": 200,
+      "title": "GELANDEWAGEN"
+    },
+    {
+      "name": "desktop",
+      "status": 200,
+      "title": "GELANDEWAGEN"
+    }
+  ],
+  "links": [
+    {
+      "href": "https://www.google.com/maps/place/GELANDEWAGEN+(STAIAN-F+SRL)/@47.0555604,28.8331165,17z/data=!3m1!4b1!4m6!3m5!1s0x40c97d0ebb188929:0x262d9de34eb7d5ed!8m2!3d47.0555568!4d28.8356914!16s%2Fg%2F1ydpvcbtj?authuser=0&entry=ttu",
+      "text": "Записаться"
+    },
+    {
+      "href": "https://www.google.com/maps/place/GELANDEWAGEN+(STAIAN-F+SRL)/@47.0555604,28.8331165,17z/data=!3m1!4b1!4m6!3m5!1s0x40c97d0ebb188929:0x262d9de34eb7d5ed!8m2!3d47.0555568!4d28.8356914!16s%2Fg%2F1ydpvcbtj?authuser=0&entry=ttu",
+      "text": "Записаться"
+    },
+    {
+      "href": "https://www.google.com/maps/place/GELANDEWAGEN+(STAIAN-F+SRL)/@47.0555604,28.8331165,17z/data=!3m1!4b1!4m6!3m5!1s0x40c97d0ebb188929:0x262d9de34eb7d5ed!8m2!3d47.0555568!4d28.8356914!16s%2Fg%2F1ydpvcbtj?authuser=0&entry=ttu",
+      "text": "Записаться"
+    },
+    {
+      "href": "https://www.google.com/maps/place/GELANDEWAGEN+(STAIAN-F+SRL)/@47.0555604,28.8331165,17z/data=!3m1!4b1!4m6!3m5!1s0x40c97d0ebb188929:0x262d9de34eb7d5ed!8m2!3d47.0555568!4d28.8356914!16s%2Fg%2F1ydpvcbtj?authuser=0&entry=ttu",
+      "text": "Записаться"
+    }
+  ],
+  "consoleErrors": [
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()",
+    "Failed to load resource: the server responded with a status of 404 ()"
+  ]
+}
