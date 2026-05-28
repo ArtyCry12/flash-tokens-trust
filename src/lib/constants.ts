@@ -5,8 +5,10 @@ export const HERO_VIDEO = {
   poster: "/videos/hero-poster.webp",
   webm: "/videos/hero.webm",
   mp4: "/videos/hero.mp4",
-  /** Set true after `npm run hero:video` produces webm/mp4 */
+  /** Set true when hero.mp4 is deployed and env flag is on */
   encoded: process.env.NEXT_PUBLIC_HERO_VIDEO_ENCODED === "true",
+  /** WebM optional — omit source when ffmpeg has not run */
+  hasWebm: process.env.NEXT_PUBLIC_HERO_VIDEO_WEBM === "true",
 } as const;
 
 export const PHONES = [
@@ -38,9 +40,36 @@ export const SECTION_IDS = {
   process: "process",
   stats: "stats",
   gallery: "gallery",
-  cta: "cta",
   contact: "contact",
 } as const;
+
+export const SERVICE_IMAGES = [
+  "/images/services/service-01-diagnostics.webp",
+  "/images/services/service-02-electrics.webp",
+  "/images/services/service-03-engine.webp",
+  "/images/services/service-04-at.webp",
+  "/images/services/service-05-ac.webp",
+  "/images/services/service-06-suspension.webp",
+  "/images/services/service-07-brakes.webp",
+  "/images/services/service-08-alignment.webp",
+] as const;
+
+export const GALLERY_MODELS = [
+  {
+    src: "/models/mercedes-s-class.glb",
+    label: "Mercedes-Benz S-Class",
+  },
+  {
+    src: "/models/brabus-g-class.glb",
+    label: "Brabus G-Class",
+  },
+  {
+    src: "/models/mercedes-s-texture.glb",
+    label: "Mercedes-Benz S",
+  },
+] as const;
+
+export const TIKTOK_URL = "https://www.tiktok.com/@gelandewagen.md" as const;
 
 export const GALLERY_IMAGES = [
   { src: "/images/gallery-1.webp", alt: "Mercedes-Benz GLE Coupe" },

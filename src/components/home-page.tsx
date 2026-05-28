@@ -10,7 +10,6 @@ import { WhySection } from "@/components/sections/why-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { StatsSection } from "@/components/sections/stats-section";
 import { GallerySection } from "@/components/sections/gallery-section";
-import { CtaSection } from "@/components/sections/cta-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -27,7 +26,6 @@ export function HomePage() {
         <ProcessSection />
         <StatsSection />
         <GallerySection />
-        <CtaSection />
         <ContactSection />
         <SiteFooter />
       </main>
