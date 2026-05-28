@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import SplitText from "@/components/react-bits/SplitText";
 import { HeroCtaPanel } from "@/components/sections/hero-cta-panel";
@@ -26,11 +25,11 @@ export function HeroVideoSection() {
     const el = videoRef.current;
     if (!el || reducedMotion || !HERO_VIDEO.encoded) return;
     el.play().catch(() => {
-      /* autoplay blocked — poster remains visible */
+      /* autoplay blocked — first frame stays visible */
     });
   }, [reducedMotion, videoReady]);
 
-  const showVideo = HERO_VIDEO.encoded && !reducedMotion;
+  const showMotion = HERO_VIDEO.encoded && !reducedMotion;
 
   return (
     <section
@@ -39,34 +38,22 @@ export function HeroVideoSection() {
       aria-label={h.h1}
     >
       <div className="absolute inset-0">
-        {showVideo && (
-          <video
-            ref={videoRef}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-              videoReady ? "opacity-100" : "opacity-0"
-            }`}
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            poster={HERO_VIDEO.poster}
-            onCanPlay={() => setVideoReady(true)}
-          >
-            {HERO_VIDEO.hasWebm && (
-              <source src={HERO_VIDEO.webm} type="video/webm" />
-            )}
-            <source src={HERO_VIDEO.mp4} type="video/mp4" />
-          </video>
-        )}
-        <Image
-          src={HERO_VIDEO.poster}
-          alt=""
-          fill
-          priority
-          fetchPriority="high"
-          className={`object-cover ${showVideo && videoReady ? "opacity-0" : "opacity-100"} transition-opacity duration-700`}
-          sizes="100vw"
-        />
+        <video
+          ref={videoRef}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
+            videoReady || !showMotion ? "opacity-100" : "opacity-90"
+          }`}
+          muted
+          loop={showMotion}
+          playsInline
+          preload="auto"
+          autoPlay={showMotion}
+          onCanPlay={() => setVideoReady(true)}
+          onLoadedData={() => setVideoReady(true)}
+        >
+          {HERO_VIDEO.hasWebm && <source src={HERO_VIDEO.webm} type="video/webm" />}
+          <source src={HERO_VIDEO.mp4} type="video/mp4" />
+        </video>
         <div
           className="absolute inset-0 bg-gradient-to-t from-[var(--gw-bg)] via-[var(--gw-bg)]/75 to-[var(--gw-bg)]/40"
           aria-hidden

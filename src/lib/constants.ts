@@ -2,7 +2,6 @@ export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://mercedesservice.md";
 
 export const HERO_VIDEO = {
-  poster: "/videos/hero-poster.webp",
   webm: "/videos/hero.webm",
   mp4: "/videos/hero.mp4",
   /** Set true when hero.mp4 is deployed and env flag is on */
@@ -57,7 +56,7 @@ export const SERVICE_IMAGES = [
 export const GALLERY_MODELS = [
   {
     src: "/models/mercedes-s-class.glb",
-    label: "Mercedes-Benz S-Class",
+    label: "Mercedes-AMG GT 4-Door",
   },
   {
     src: "/models/brabus-g-class.glb",
