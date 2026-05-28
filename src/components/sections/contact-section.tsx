@@ -52,7 +52,7 @@ export function ContactSection() {
                 <a
                   key={phone.href}
                   href={phone.href}
-                  className="text-lg font-medium text-[#2997ff] hover:underline"
+                  className="text-lg font-medium text-white hover:text-white/80"
                 >
                   {phone.display}
                 </a>

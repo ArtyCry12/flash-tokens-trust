@@ -62,6 +62,7 @@
   --gw-accent-hover-hex: #0077ed;
   --gw-surface-light: oklch(0.97 0.005 260);
   --gw-text-primary: oklch(0.2 0.01 260);
+  --gw-text-secondary: oklch(0.38 0.01 260);
   --background: var(--gw-bg);
   --foreground: var(--gw-silver);
   --card: oklch(1 0 0);

@@ -7,7 +7,7 @@ import {
   useTransform,
   AnimatePresence,
 } from "motion/react";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import "./Dock.css";
 
 export type DockItemData = {
@@ -44,7 +44,7 @@ function DockItemButton({
       magnification,
       baseItemSize,
     ]),
-    spring
+    spring,
   );
 
   return (
@@ -63,9 +63,9 @@ function DockItemButton({
       <AnimatePresence>
         {hovered && (
           <motion.span
-            initial={{ opacity: 0, y: 0 }}
-            animate={{ opacity: 1, y: -10 }}
-            exit={{ opacity: 0, y: 0 }}
+            initial={{ opacity: 0, y: 4 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 4 }}
             className="dock-label"
           >
             {item.label}
@@ -79,11 +79,10 @@ function DockItemButton({
 export default function Dock({
   items,
   className = "",
-  magnification = 70,
+  magnification = 64,
   distance = 200,
   panelHeight = 68,
-  dockHeight = 256,
-  baseItemSize = 50,
+  baseItemSize = 48,
 }: {
   items: DockItemData[];
   className?: string;
@@ -94,27 +93,13 @@ export default function Dock({
   baseItemSize?: number;
 }) {
   const mouseX = useMotionValue(Infinity);
-  const isHovered = useMotionValue(0);
   const spring = { mass: 0.1, stiffness: 150, damping: 12 };
 
-  const maxHeight = useMemo(
-    () => Math.max(dockHeight, magnification + magnification / 2 + 4),
-    [magnification, dockHeight]
-  );
-  const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
-  const height = useSpring(heightRow, spring);
-
   return (
-    <motion.div style={{ height }} className={`dock-outer ${className}`}>
-      <motion.div
-        onMouseMove={(e) => {
-          isHovered.set(1);
-          mouseX.set(e.pageX);
-        }}
-        onMouseLeave={() => {
-          isHovered.set(0);
-          mouseX.set(Infinity);
-        }}
+    <div className={`dock-outer ${className}`} style={{ height: panelHeight + 24 }}>
+      <div
+        onMouseMove={(e) => mouseX.set(e.pageX)}
+        onMouseLeave={() => mouseX.set(Infinity)}
         className="dock-panel"
         style={{ height: panelHeight }}
         role="toolbar"
@@ -131,7 +116,7 @@ export default function Dock({
             baseItemSize={baseItemSize}
           />
         ))}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 }

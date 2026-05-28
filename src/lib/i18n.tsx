@@ -6,7 +6,7 @@ import {
   useContext,
   useEffect,
   useMemo,
-  useSyncExternalStore,
+  useState,
   type ReactNode,
 } from "react";
 import { ro } from "@/content/ro";
@@ -14,7 +14,6 @@ import { ru } from "@/content/ru";
 import type { Lang, SiteContent } from "@/content/types";
 
 const CONTENT: Record<Lang, SiteContent> = { ro, ru };
-const LANG_CHANGE = "gelandewagen-lang-change";
 
 type LanguageContextValue = {
   lang: Lang;
@@ -25,10 +24,8 @@ type LanguageContextValue = {
 
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
-let hydrated = false;
-let overrideLang: Lang | null = null;
-
 function readLangFromBrowser(): Lang {
+  if (typeof window === "undefined") return "ro";
   const params = new URLSearchParams(window.location.search);
   const q = params.get("lang");
   if (q === "ru" || q === "ro") return q;
@@ -43,76 +40,39 @@ function syncLangToUrl(lang: Lang) {
   window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
 }
 
-function getLangSnapshot(): Lang {
-  if (overrideLang) return overrideLang;
-  if (!hydrated) return "ro";
-  return readLangFromBrowser();
-}
-
-function getLangServerSnapshot(): Lang {
-  return "ro";
-}
-
-function subscribeToLang(onStoreChange: () => void) {
-  const notify = () => onStoreChange();
-  window.addEventListener(LANG_CHANGE, notify);
-  window.addEventListener("popstate", notify);
-  return () => {
-    window.removeEventListener(LANG_CHANGE, notify);
-    window.removeEventListener("popstate", notify);
-  };
-}
-
-function emitLangChange() {
-  window.dispatchEvent(new Event(LANG_CHANGE));
-}
-
-function applyLang(next: Lang) {
-  overrideLang = next;
-  document.documentElement.lang = next;
-  localStorage.setItem("gelandewagen-lang", next);
-  syncLangToUrl(next);
-  emitLangChange();
-}
-
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const lang = useSyncExternalStore(
-    subscribeToLang,
-    getLangSnapshot,
-    getLangServerSnapshot,
-  );
+  const [lang, setLang] = useState<Lang>("ro");
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    hydrated = true;
     const initial = readLangFromBrowser();
-    overrideLang = initial;
-    document.documentElement.lang = initial;
-    localStorage.setItem("gelandewagen-lang", initial);
-    syncLangToUrl(initial);
-    emitLangChange();
-    return () => {
-      hydrated = false;
-      overrideLang = null;
-    };
+    setLang(initial);
+    setReady(true);
   }, []);
 
-  const setLang = useCallback((next: Lang) => {
-    applyLang(next);
+  useEffect(() => {
+    if (!ready) return;
+    document.documentElement.lang = lang;
+    localStorage.setItem("gelandewagen-lang", lang);
+    syncLangToUrl(lang);
+  }, [lang, ready]);
+
+  const applyLang = useCallback((next: Lang) => {
+    setLang(next);
   }, []);
 
   const toggleLang = useCallback(() => {
-    const current = overrideLang ?? readLangFromBrowser();
-    applyLang(current === "ro" ? "ru" : "ro");
+    setLang((current) => (current === "ro" ? "ru" : "ro"));
   }, []);
 
   const value = useMemo(
     () => ({
       lang,
       content: CONTENT[lang],
-      setLang,
+      setLang: applyLang,
       toggleLang,
     }),
-    [lang, setLang, toggleLang],
+    [lang, applyLang, toggleLang],
   );
 
   return (

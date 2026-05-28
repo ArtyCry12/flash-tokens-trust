@@ -1,8 +1,6 @@
 "use client";
 
 import { useLanguage } from "@/lib/i18n";
-import { Button } from "@/components/ui/button";
-
 export function SiteHeader() {
   const { lang, toggleLang, content } = useLanguage();
 
@@ -15,16 +13,15 @@ export function SiteHeader() {
         >
           {content.hero.brand}
         </a>
-        <Button
-          variant="outline"
-          size="sm"
-          className="border-white/20 bg-transparent text-white hover:bg-white/10"
+        <button
+          type="button"
+          className="inline-flex h-8 items-center rounded-lg border border-white/20 bg-transparent px-3 text-sm font-medium text-white transition hover:bg-white/10"
           onClick={toggleLang}
           aria-label="Toggle language"
           suppressHydrationWarning
         >
           {lang === "ro" ? "RU" : "RO"}
-        </Button>
+        </button>
       </div>
     </header>
   );

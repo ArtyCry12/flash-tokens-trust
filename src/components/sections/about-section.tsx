@@ -26,11 +26,11 @@ export function AboutSection() {
 
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <AnimatedContent direction="horizontal" reverse distance={60} delay={0.1}>
-            <div className="space-y-4 text-base leading-relaxed text-[#333] md:text-lg">
+            <div className="space-y-4 text-base leading-relaxed text-[var(--gw-text-secondary)] md:text-lg">
               {a.paragraphs.map((p) => (
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}
-              <p className="font-medium text-[#1d1d1f]">{a.closing}</p>
+              <p className="font-medium text-[var(--gw-text-primary)]">{a.closing}</p>
             </div>
             <ul className="mt-8 grid gap-2 sm:grid-cols-2">
               {a.bullets.map((b) => (
@@ -44,21 +44,35 @@ export function AboutSection() {
             </ul>
           </AnimatedContent>
 
-          <ContainerScroll
-            titleComponent={
-              <p className="text-sm font-semibold uppercase tracking-widest text-[#6e6e73]">
-                Mercedes-Benz · Chișinău
-              </p>
-            }
-          >
+          <div className="md:hidden">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[var(--gw-muted)]">
+              Mercedes-Benz · Chișinău
+            </p>
             <Image
               src="/images/gallery-4.webp"
               alt="Mercedes-Benz service GELANDEWAGEN"
               width={1200}
               height={800}
-              className="mx-auto h-full w-full rounded-2xl object-cover"
+              className="w-full rounded-2xl object-cover shadow-lg"
             />
-          </ContainerScroll>
+          </div>
+          <div className="hidden md:block">
+            <ContainerScroll
+              titleComponent={
+                <p className="text-sm font-semibold uppercase tracking-widest text-[var(--gw-muted)]">
+                  Mercedes-Benz · Chișinău
+                </p>
+              }
+            >
+              <Image
+                src="/images/gallery-4.webp"
+                alt="Mercedes-Benz service GELANDEWAGEN"
+                width={1200}
+                height={800}
+                className="mx-auto h-full w-full rounded-2xl object-cover"
+              />
+            </ContainerScroll>
+          </div>
         </div>
       </div>
     </section>
