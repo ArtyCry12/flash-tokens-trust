@@ -52,6 +52,12 @@ temp/
 test-results/
 playwright-report/
 
+# Extracted design skill libraries (local reference only)
+docs/design-libraries/
+
+# ffmpeg concat list (generated)
+public/videos/frames-list.txt
+
 # Agent IDE (local only)
 .cursor/
 .amazonq/
@@ -63,3 +69,5 @@ playwright-report/
 .opencode/
 .windsurf/
 .windsurfrules
+
+.vercel
