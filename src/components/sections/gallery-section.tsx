@@ -18,7 +18,7 @@ export function GallerySection() {
   const images = GALLERY_IMAGES.map((img) => img.src);
 
   return (
-    <section id={SECTION_IDS.gallery} className="bg-black py-24 text-white">
+    <section id={SECTION_IDS.gallery} className="bg-[var(--gw-bg)] py-24 text-white">
       <div className="container mx-auto px-4 text-center md:px-6">
         <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">{g.h2}</h2>
         <p className="mx-auto mt-4 max-w-xl text-white/60">{g.subtitle}</p>

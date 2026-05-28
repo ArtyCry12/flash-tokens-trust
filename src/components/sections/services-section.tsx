@@ -36,7 +36,7 @@ export function ServicesSection() {
   }));
 
   return (
-    <section id={SECTION_IDS.services} className="bg-black py-24 text-white">
+    <section id={SECTION_IDS.services} className="bg-[var(--gw-bg)] py-24 text-white">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent>
           <h2 className="mb-4 text-center text-3xl font-semibold tracking-tight md:text-5xl">

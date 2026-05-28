@@ -17,7 +17,7 @@ export function ContactSection() {
   const c = content.contact;
 
   return (
-    <section id={SECTION_IDS.contact} className="bg-[#121212] py-20 text-white">
+    <section id={SECTION_IDS.contact} className="bg-[var(--gw-surface)] py-20 text-white">
       <div className="container mx-auto max-w-3xl px-4 md:px-6">
         <AnimatedContent>
           <h2 className="mb-2 text-3xl font-semibold tracking-tight md:text-4xl">{c.h2}</h2>

@@ -13,7 +13,7 @@ export function StatsSection() {
   return (
     <section
       id={SECTION_IDS.stats}
-      className="border-y border-white/10 bg-[#121212] py-20 text-white"
+      className="border-y border-white/10 bg-[var(--gw-surface)] py-20 text-white"
     >
       <div className="container mx-auto flex flex-col items-center gap-6 px-4 text-center md:px-6">
         <CountUp

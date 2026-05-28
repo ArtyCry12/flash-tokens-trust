@@ -14,7 +14,7 @@ export function AboutSection() {
   return (
     <section
       id={SECTION_IDS.about}
-      className="bg-[#f5f5f7] py-24 text-[#1d1d1f]"
+      className="bg-[var(--gw-surface-light)] py-24 text-[var(--gw-text-primary)]"
     >
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent direction="vertical" distance={80}>

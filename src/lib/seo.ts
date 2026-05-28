@@ -1,4 +1,4 @@
-import { ADDRESS, PHONES, SITE_URL } from "@/lib/constants";
+import { ADDRESS, OPENING_HOURS, PHONES, SITE_URL } from "@/lib/constants";
 
 export function buildJsonLd() {
   return {
@@ -22,6 +22,7 @@ export function buildJsonLd() {
         url: SITE_URL,
         telephone: PHONES.map((p) => p.href.replace("tel:", "")),
         foundingDate: "1996",
+        image: `${SITE_URL}/og-poster.webp`,
         address: {
           "@type": "PostalAddress",
           streetAddress: "str. Criuleni 82",
@@ -33,6 +34,12 @@ export function buildJsonLd() {
           latitude: ADDRESS.lat,
           longitude: ADDRESS.lng,
         },
+        openingHoursSpecification: OPENING_HOURS.map((slot) => ({
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: slot.dayOfWeek,
+          opens: slot.opens,
+          closes: slot.closes,
+        })),
         areaServed: {
           "@type": "Country",
           name: "Moldova",

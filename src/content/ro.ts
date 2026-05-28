@@ -17,8 +17,8 @@ export const ro: SiteContent = {
     brand: "GELANDEWAGEN",
     h1: "Mercedes Service Chișinău",
     subtitle: "Tot ce e mai bun pentru Mercedes-ul tău",
-    lead: "Service specializat Mercedes-Benz în Chișinău. Diagnostic, reparații și întreținere din 1996.",
-    trust: "Experiență, onestitate și lucrări atente pentru Mercedes-Benz.",
+    lead: "Suntem un service dedicat exclusiv Mercedes-Benz în Chișinău — diagnostic, reparații și întreținere, cu experiență din 1996.",
+    trust: "Spunem clar ce trebuie făcut, ce poate aștepta și cât costă — fără surprize la final.",
     cta: "Programează diagnosticarea",
     chips: [
       "Specialist Mercedes-Benz",
@@ -87,7 +87,7 @@ export const ro: SiteContent = {
   why: {
     h2: "De ce să ne alegeți?",
     intro:
-      "Nu reparăm doar mașini — redăm încrederea, claritatea procesului și liniștea proprietarului.",
+      "Pentru noi contează nu doar reparația, ci și cum vă simțiți când lăsați mașina la service și când o ridicați.",
     items: [
       { letter: "G", title: "Garanție", description: "Garanție pentru calitatea lucrărilor" },
       { letter: "W", title: "Welcoming", description: "Nivel înalt de servicii pentru clienți" },
@@ -128,7 +128,7 @@ export const ro: SiteContent = {
   },
   cta: {
     h2: "Programează întreținerea",
-    text: "Obține diagnostic precis și soluție profesională pentru Mercedes-Benz.",
+    text: "Programează o vizită — îți spunem de unde să începem și ce verificăm mai întâi.",
     book: "Programează",
     call: "Sună acum",
     note: "Fără lucrări inutile — doar ce are nevoie mașina ta.",

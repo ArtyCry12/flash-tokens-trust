@@ -10,7 +10,7 @@ export function WhySection() {
   const w = content.why;
 
   return (
-    <section id={SECTION_IDS.why} className="bg-[#f5f5f7] py-24 text-[#1d1d1f]">
+    <section id={SECTION_IDS.why} className="bg-[var(--gw-surface-light)] py-24 text-[var(--gw-text-primary)]">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedContent>
           <h2 className="mb-4 text-3xl font-semibold tracking-tight md:text-5xl">{w.h2}</h2>
