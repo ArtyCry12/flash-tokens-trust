@@ -1,13 +1,20 @@
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://mercedesservice.md";
 
+function readPublicFlag(name: string, defaultOn = true): boolean {
+  const raw = process.env[name];
+  if (raw === undefined || raw.trim() === "") return defaultOn;
+  const value = raw.trim().toLowerCase();
+  if (value === "false" || value === "0" || value === "no") return false;
+  return value === "true" || value === "1" || value === "yes";
+}
+
 export const HERO_VIDEO = {
   webm: "/videos/hero.webm",
   mp4: "/videos/hero.mp4",
-  /** Set true when hero.mp4 is deployed and env flag is on */
-  encoded: process.env.NEXT_PUBLIC_HERO_VIDEO_ENCODED === "true",
-  /** WebM optional — omit source when ffmpeg has not run */
-  hasWebm: process.env.NEXT_PUBLIC_HERO_VIDEO_WEBM === "true",
+  /** Autoplay hero.mp4 unless explicitly disabled via env */
+  encoded: readPublicFlag("NEXT_PUBLIC_HERO_VIDEO_ENCODED", true),
+  hasWebm: readPublicFlag("NEXT_PUBLIC_HERO_VIDEO_WEBM", false),
 } as const;
 
 export const PHONES = [

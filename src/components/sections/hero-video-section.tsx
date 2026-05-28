@@ -21,15 +21,22 @@ export function HeroVideoSection() {
     return () => mq.removeEventListener("change", update);
   }, []);
 
+  const showMotion = HERO_VIDEO.encoded && !reducedMotion;
+
   useEffect(() => {
     const el = videoRef.current;
-    if (!el || reducedMotion || !HERO_VIDEO.encoded) return;
-    el.play().catch(() => {
-      /* autoplay blocked — first frame stays visible */
-    });
-  }, [reducedMotion, videoReady]);
+    if (!el || !showMotion) return;
 
-  const showMotion = HERO_VIDEO.encoded && !reducedMotion;
+    const play = () => {
+      el.play().catch(() => {
+        /* autoplay blocked — first frame stays visible */
+      });
+    };
+
+    play();
+    el.addEventListener("loadeddata", play);
+    return () => el.removeEventListener("loadeddata", play);
+  }, [showMotion]);
 
   return (
     <section
@@ -48,6 +55,8 @@ export function HeroVideoSection() {
           playsInline
           preload="auto"
           autoPlay={showMotion}
+          disablePictureInPicture
+          disableRemotePlayback
           onCanPlay={() => setVideoReady(true)}
           onLoadedData={() => setVideoReady(true)}
         >
