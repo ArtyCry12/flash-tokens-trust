@@ -21,7 +21,10 @@ export const metadata: Metadata = {
   title: ro.meta.title,
   description: ro.meta.description,
   alternates: {
+    canonical: "/",
     languages: {
+      "ro-MD": "/",
+      "ru-MD": "/?lang=ru",
       ro: "/",
       ru: "/?lang=ru",
     },
@@ -57,13 +60,19 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <link rel="preload" href="/frames/frame-0001.webp" as="image" />
+        <link rel="preload" href="/videos/hero-poster.webp" as="image" type="image/webp" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full bg-black text-foreground">
+      <body className="min-h-full bg-[var(--gw-bg)] text-foreground">
+        <a
+          href="#hero"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black"
+        >
+          Skip to content
+        </a>
         <Providers>{children}</Providers>
       </body>
     </html>

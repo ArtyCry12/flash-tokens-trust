@@ -1,6 +1,7 @@
 "use client";
 
-import { ScrollAnimationSection } from "@/components/animation/ScrollAnimationSection";
+import { HeroVideoSection } from "@/components/sections/hero-video-section";
+import { TrustStrip } from "@/components/sections/trust-strip";
 import { SiteHeader } from "@/components/site-header";
 import { SiteDock } from "@/components/site-dock";
 import { AboutSection } from "@/components/sections/about-section";
@@ -18,7 +19,8 @@ export function HomePage() {
     <>
       <SiteHeader />
       <main className="pb-28">
-        <ScrollAnimationSection />
+        <HeroVideoSection />
+        <TrustStrip />
         <AboutSection />
         <ServicesSection />
         <WhySection />
